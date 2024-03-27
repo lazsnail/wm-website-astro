@@ -48,12 +48,11 @@ function FlyoutLink({title, link}: FlyoutLinkProps) {
         <a
             onClick={() => isNavOpen.set(!$isNavOpen)}
             href={link}
-            className="relative w-fit group transition py-2 px-1 opacity-0 animate-[fadeIn_0.5s_0.4s_forwards]"
+            className="w-fit transition py-2 px-1 opacity-0 animate-[fadeIn_0.5s_0.4s_forwards] hover:underline underline-offset-8"
         >
-            <span className="relative group-hover:text-white transition z-10">            
+            <span>            
                 {title}
             </span>
-            <div className="absolute top-0 left-0 group-hover:w-full w-0 bg-black h-full transition-all z-0"></div>
         </a>
     )   
 }
