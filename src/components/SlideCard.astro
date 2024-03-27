@@ -1,0 +1,80 @@
+---
+import logo_white from "../../public/wm_logo_white.png"
+import logo_black from "../../public/wm_logo_black.png"
+
+interface Props {
+    front_text: string,
+    back_text: string,
+    link: string,
+    theme: "black" | "white"
+}
+
+const { front_text, back_text, link, theme } = Astro.props;
+
+const front_logo = theme == "black" ? logo_white : logo_black
+const back_logo = theme == "black" ? logo_black : logo_white
+---
+
+<div
+    class={`${theme == 'black' ? 'bg-black text-white border-2 border-white' : 'bg-white text-black border-2'} group relative w-full max-w-[500px] flex-grow hide rounded-lg transition duration-1000 ease-out`}
+>
+    <div class="w-full h-full flex flex-col items-center justify-between gap-8 md:gap-24 px-6 md:px-8 py-6">
+        <img 
+            src={front_logo.src} 
+            alt="WM Logo"
+            class="w-8"
+        >
+        <div class="flex justify-between items-center gap-6 md:gap-24">
+            <img 
+                src={front_logo.src} 
+                alt="WM Logo"
+                class="w-8"
+            >
+            <p class="italic text-2xl tracking-wide font-semibold">
+                { front_text }
+            </p>
+            <img 
+                src={front_logo.src} 
+                alt="WM Logo"
+                class="w-8"
+            >
+        </div>
+        <img 
+            src={front_logo.src} 
+            alt="WM Logo"
+            class="w-8"
+        >
+    </div>
+    <div class={`${theme == 'black' ? 'bg-white' : 'bg-black '} absolute top-0 left-0 w-full h-0 group-hover:h-full transition-all `}>
+    </div>
+    <div class={`${theme == 'black' ? 'text-black border-2' : 'text-white border-2 border-white'} absolute rounded-lg top-0 left-0 opacity-0 w-full h-full group-hover:opacity-100 transition ease-in-out duration-200 delay-50 flex flex-col items-center justify-between gap-8 md:gap-24  px-6 md:px-8 py-6`}>
+        <img 
+            src={back_logo.src} 
+            alt="WM Logo"
+            class="w-8"
+        >
+        <div class="flex w-full justify-between items-center gap-6 md:gap-24">
+            <img 
+                src={back_logo.src} 
+                alt="WM Logo"
+                class="w-8"
+            >
+            <a 
+                href={link}
+                class="italic text-2xl tracking-wide font-semibold underline underline-offset-4"
+            > 
+                { back_text }
+            </a>
+            <img 
+                src={back_logo.src} 
+                alt="WM Logo"
+                class="w-8"
+            >
+        </div>
+        <img 
+            src={back_logo.src} 
+            alt="WM Logo"
+            class="w-8"
+        >
+    </div>
+</div>

@@ -20,7 +20,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="min-h-screen min-w-screen flex flex-col">
+	<body class="min-h-screen min-w-screen overflow-hidden flex flex-col">
         <Navbar transition:persist/>
 		<slot />
         <Footer />
