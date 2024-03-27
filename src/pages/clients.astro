@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import bongs_logo from "../../public/bongs_logo.png"
 import jericho_logo from "../../public/jericho_logo.png"
+import atestntag_logo from "../../public/atestntag_logo.png"
+import ClientCard from "../components/ClientCard.astro";
 ---
 
 <Layout title="WM Design | Clients">
@@ -35,54 +37,30 @@ import jericho_logo from "../../public/jericho_logo.png"
         <div 
             class="flex flex-wrap justify-center gap-5 mb-10"
         >
-            <div 
-                class="w-5/6 max-w-[500px] flex flex-col gap-10 justify-between items-center bg-white text-black text-center p-6 rounded-lg"
-            >
-                <img
-                    width={200}
-                    src={bongs_logo.src}
-                    alt="Bong's Donburi logo"
-                />
-                <i 
-                    class="text-lg"
-                >
-                    The best food spot in St. Lucia deserves the best
+            <ClientCard 
+                logo={atestntag_logo}
+                description=`To reflect their commitment to professionalism, 
+                    we established the Affordable Test and Tagging website, 
+                    offering high-quality test and tagging services on the 
+                    Sunshine Coast.`
+                url="https://atestntag.com.au"
+            />
+            <ClientCard 
+                logo={bongs_logo} 
+                description=`The best food spot in St. Lucia deserves the best
                     website. We took inspiration from the beautiful
                     aesthetic of the store in creating a stylish and
-                    organised website with a touch of Japanese flair.
-                </i>
-                <a
-                    class="w-fit flex gap-2 py-2 px-3 rounded-lg text-white font-semibold bg-black hover:bg-white hover:text-black border-2 border-black hover:-translate-y-1 hover:-translate-x-1 hover:shadow-button hover:shadow-black transition"
-                    href="https://bongs-donburi.vercel.app/"
-                    target="blank"
-                >
-                    Visit Site
-                </a>
-            </div>
-            <div 
-                class="w-5/6 max-w-[500px] flex flex-col gap-10 items-center justify-between bg-white text-black text-center p-6 rounded-lg"
-            >
-                <img
-                    width={200}
-                    src={jericho_logo.src}
-                    alt="Jericho and Co logo"
-                />
-                <i 
-                    class="text-lg"
-                >
-                    Blending professionalism with a touch of tropical flair,
+                    organised website with a touch of Japanese flair.`
+                url="https://bongs-donburi.vercel.app/"
+            />
+            <ClientCard 
+                logo={jericho_logo}
+                description=`Blending professionalism with a touch of tropical flair,
                     this website showcases our client&apos;s commitment to
                     delivering marketing excellence in the heart of North
-                    Queensland.
-                </i>
-                <a
-                    class="w-fit flex gap-2 py-2 px-3 rounded-lg text-white font-semibold bg-black hover:bg-white hover:text-black border-2 border-black hover:-translate-y-1 hover:-translate-x-1 hover:shadow-button hover:shadow-black transition"
-                    href="https://www.jerichoandco.com/"
-                    target="blank"
-                >
-                    Visit Site
-                </a>
-            </div>
+                    Queensland.`
+                url="https://www.jerichoandco.com/"
+            />
         </div>
     </main>
 </Layout>

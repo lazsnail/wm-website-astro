@@ -5,15 +5,13 @@ export default function NavFlyout() {
     const $isNavOpen = useStore(isNavOpen);
 
     return (
-        <>
+        <div
+            aria-pressed={$isNavOpen}
+            className="w-0 h-0 aria-pressed:h-[200vh] aria-pressed:w-[200vh] transition-all duration-1000 max-w-full md:hidden fixed -right-24 -top-32 bg-white rounded-full z-20 overflow-hidden"
+        >
             <div
                 aria-pressed={$isNavOpen}
-                className="w-0 h-0 aria-pressed:h-[200vh] aria-pressed:w-[200vh] transition-all duration-1000 max-w-full md:hidden fixed -right-24 -top-32 bg-white rounded-full z-20 overflow-hidden"
-            >
-            </div>
-            <div
-                aria-pressed={$isNavOpen}
-                className="hidden md:hidden fixed text-3xl text-right pr-4 top-0 left-0 w-screen h-screen text-black aria-pressed:flex flex-col gap-12 justify-center items-end z-20 overflow-hidden"
+                className="hidden fixed text-3xl text-right pr-4 top-0 left-0 w-screen h-screen text-black aria-pressed:flex flex-col gap-12 justify-center items-end z-20 overflow-hidden"
             >
                 <FlyoutLink 
                     title="SERVICES"
@@ -32,7 +30,7 @@ export default function NavFlyout() {
                     link="/contact"
                 />
             </div>
-        </>
+        </div>
     )
 }
 
