@@ -171,7 +171,7 @@ import SlideCard from '../components/SlideCard.astro';
 	</main>
 </Layout>
 
-<script is:inline>
+<script is:inline defer>
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
     }
@@ -187,6 +187,7 @@ import SlideCard from '../components/SlideCard.astro';
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
+                console.log(entry.target)
                 let ratio = Math.round(entry.intersectionRatio * 10) / 10;
 
                 if (entry.boundingClientRect.top > 0) {
@@ -216,6 +217,7 @@ import SlideCard from '../components/SlideCard.astro';
         }, options);
 
         const icons = document.querySelectorAll(".hide");
+        console.log(icons)
         icons.forEach((icon) => observer.observe(icon));
     }
     
