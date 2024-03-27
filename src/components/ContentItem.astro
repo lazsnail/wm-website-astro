@@ -1,0 +1,28 @@
+---
+import logo_black from "../../public/wm_logo_black.png"
+import logo_white from "../../public/wm_logo_white.png"
+
+interface Props {
+	heading: string;
+    subheading: string;
+    theme: "white" | "black";
+}
+
+const { heading, subheading, theme } = Astro.props;
+
+const logo = theme == "black" ? logo_white : logo_black;
+---
+
+<div
+    class={
+        `${ theme === "white"
+            ? "bg-white text-black"
+            : "bg-black text-white border-4 border-white "} 
+            max-w-[300px] flex flex-col items-center justify-between cursor-default p-4 gap-3 text-center rounded-xl hover:scale-110 transition`
+    }
+>
+    <img width={30} src={logo.src} alt="WM logo" />
+    <h2 class="font-bold text-2xl">{heading}</h2>
+    <i>{subheading}</i>
+    <img width={30} src={logo.src} alt="WM logo" />
+</div>

@@ -1,0 +1,57 @@
+---
+import ContentItem from "../components/ContentItem.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="WM Design | Services">
+    <main class="flex flex-col items-center flex-grow">
+        <div class="flex flex-col items-center text-center my-20 tracking-wider leading-10">
+            <b class="text-6xl opacity-0 animate-[fadeHover_0.4s_ease-in-out_0.2s_forwards]">
+                WE MAKE
+            </b>
+            <b class="text-6xl opacity-0 animate-[fadeHover_0.4s_ease-in-out_0.4s_forwards]">
+                WEBSITES
+            </b>
+            <i class="text-xl mt-6 opacity-0 animate-[fadeHover_0.4s_ease-in-out_0.8s_forwards] tracking-wider">
+                If you didn&apos;t already know
+            </i>
+        </div>
+        <div class="flex flex-wrap justify-center gap-5 mb-10">
+            <ContentItem
+                heading="Custom Websites"
+                subheading="Tailored websites reflecting your unique brand identity."
+                theme="white"
+            />
+            <ContentItem
+                heading="Responsive Layouts"
+                subheading="Ensuring a seamless user experience on all devices."
+                theme="black"
+            />
+            <ContentItem
+                heading="Intuitive Navigation"
+                subheading="User-friendly interfaces for easy exploration."
+                theme="white"
+            />
+            <ContentItem
+                heading="SEO Integration"
+                subheading="Implementing strategies for enhanced search engine visibility."
+                theme="black"
+            />
+            <ContentItem
+                heading="E-commerce Solutions"
+                subheading="Building secure and efficient online stores."
+                theme="white"
+            />
+            <ContentItem
+                heading="Collaborative Process"
+                subheading="Involving you at every stage to ensure the perfect result."
+                theme="black"
+            />
+            <ContentItem
+                heading="Regular Updates and Maintenance"
+                subheading="Keeping your website current and functional."
+                theme="white"
+            />
+        </div>
+    </main>
+</Layout>

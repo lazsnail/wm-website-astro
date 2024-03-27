@@ -1,0 +1,80 @@
+---
+import ContactForm from "../components/ContactForm.astro";
+import Layout from "../layouts/Layout.astro";
+import nodemailer from "nodemailer";
+import Mail from "nodemailer/lib/mailer";
+
+if (Astro.request.method === "POST") {
+    try {
+        const formData = await Astro.request.formData();
+
+        const name = formData.get("name")?.toString();
+        const email = formData.get("email")?.toString();
+        const company = formData.get("company")?.toString();
+        const message = formData.get("message")?.toString();
+
+        const authEmail = import.meta.env.PUBLIC_EMAIL;
+        const authPassword = import.meta.env.SECRET_EMAIL_PASSWORD;
+
+        const transport = nodemailer.createTransport({
+            port: 465,
+            host: "smtp.gmail.com",
+            secure: true,
+            auth: {
+                user: authEmail,
+                pass: authPassword,
+            },
+        });
+
+        const mailOptions: Mail.Options = {
+            from: email,
+            to: authEmail,
+            subject: `WM Contact - ${name} from ${company}`,
+            text: message,
+        };
+
+        transport.sendMail(mailOptions, function (err) {
+            if (err) {
+                return { success: false }
+            }
+        });
+
+        return Astro.redirect("/success")
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error(error.message);
+        }
+    }
+}
+---
+
+<Layout title="WM Design | Contact">
+    <main 
+        class="flex flex-col items-center flex-grow"
+    >
+        <section 
+            class="flex flex-col items-center justify-center pt-20 pb-10 px-5"
+        >
+            <div 
+                class="flex flex-col items-center text-center"
+            >
+                <b 
+                    class="text-6xl opacity-0 animate-[fadeHover_0.4s_ease-in-out_0.2s_forwards]"
+                >
+                    WE CAN
+                </b>
+                <b 
+                    class="text-6xl opacity-0 animate-[fadeHover_0.4s_ease-in-out_0.4s_forwards]"
+                >
+                    WORK IT OUT
+                </b>
+                <p 
+                    class="w-3/4 text-xl mt-6 px-2 opacity-0 animate-[fadeHover_0.4s_ease-in-out_0.8s_forwards]"
+                >
+                    Fill out the form below and we&apos;ll get back to you as soon as possible
+                </p>
+            </div>
+        </section>
+        <ContactForm />
+    </main>
+</Layout>

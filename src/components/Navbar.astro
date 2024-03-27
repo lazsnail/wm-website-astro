@@ -1,0 +1,32 @@
+---
+import NavHamburger from "./NavHamburger"
+import NavLogo from "./NavLogo"
+import NavFlyout from "./NavFlyout"
+import NavLink from "./NavLink.astro"
+---
+
+<div class="w-full flex justify-end md:justify-between items-center py-6 font-bold">
+    <div class="hidden md:flex ml-10 gap-6 xl:ml-14">
+        <NavLink 
+            title="SERVICES"
+            link="/services"
+        />
+        <NavLink 
+            title="CLIENTS"
+            link="/clients"
+        />
+        <NavLink 
+            title="ABOUT US"
+            link="/about"
+        />
+    </div>
+    <NavLogo client:load/>
+    <NavFlyout client:load/>
+    <a
+        href="/contact"
+        class="hidden md:block font-semibold rounded-xl text-white bg-black px-3 py-2 mr-10 xl:mr-14 z-40 border-2 border-white transition hover:-translate-x-1 hover:-translate-y-1 hover:shadow-button hover:shadow-white focus:translate-x-0 focus:translate-y-0 focus:shadow-none"
+    >
+        CONTACT
+    </a>
+    <NavHamburger client:load/>
+</div>
